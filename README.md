@@ -3,7 +3,7 @@ Tappers delight
 
 TODO 
 
-- [x] Horserace 
+- [ ] Horserace 
 - [ ] Wheel of fortune 
 - [ ] Crashing car 
 - [ ] Devils dice 
