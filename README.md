@@ -10,3 +10,8 @@ TODO
 - [ ] Blackjack 
 - [ ] The teleporter 
 - [ ] The bomb defuser 
+
+
+Known bugs
+
+- [ ] Drinking event at start and end of the map
