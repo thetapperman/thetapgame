@@ -23,12 +23,36 @@ public class Teleporter {
     private String teleportationDisplay;
     private Field teleportationCoordinate;
     private boolean teleporterIsBroken;
-    private ImageIcon icon;
+    private ImageIcon img;
     private JFrame f;
+    private int newXCoord;
+    private int newYCoord;
     
     public Teleporter(){
-        Random randomXCoord = new Random();
-        Random randomYCoord = new Random();
-        randomXCoord = randomXCoord.nextInt(9) + 1;
+        Random rng = new Random();
+        int isTeleporterBrokenRNG = rng.nextInt(10);
+        
+        if(isTeleporterBrokenRNG < 2){
+            teleporterIsBroken = true;
+            return;
+        } else {
+            teleporterIsBroken = false;
+        }
+        
+        newXCoord = rng.nextInt(9) + 1;
+        newYCoord = rng.nextInt(9) + 1;
+    }
+    
+        public void createBoard() {
+        this.f.setContentPane(new JLabel(this.img));
+    	this.f.pack();
+        this.f.setLayout(null);
+        this.f.setResizable(false);
+        this.f.setDefaultCloseOperation(0);
+        this.f.setVisible(true);
+    }
+        
+    public static void main(String[] arg0)throws IOException{
+        Teleporter tp = new Teleporter();
     }
 }
