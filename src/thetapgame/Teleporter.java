@@ -34,13 +34,14 @@ public class Teleporter {
         
         if(isTeleporterBrokenRNG < 2){
             teleporterIsBroken = true;
-            return;
         } else {
             teleporterIsBroken = false;
         }
         
         newXCoord = rng.nextInt(9) + 1;
         newYCoord = rng.nextInt(9) + 1;
+        
+        startTeleporter();
     }
     
         public void createBoard() {
@@ -64,5 +65,21 @@ public class Teleporter {
         
     public static void main(String[] arg0)throws IOException{
         Teleporter tp = new Teleporter();
+    }
+    
+    public void startTeleporter(){
+        AppearWindow teleporter = new AppearWindow("Welcome to the teleporter!\n It can take you anywhere, but it is a bit rusty.");
+        teleporter.ShowFrame(true);
+        teleporter.whileConnected();
+        
+        if(!teleporterIsBroken){
+            AppearWindow result = new AppearWindow("You are going to a new place! ");
+            result.ShowFrame(true);
+            result.whileConnected();
+        } else {
+            AppearWindow result = new AppearWindow("Oops!\n Looks like it exploded!\n Chug now.");
+             result.ShowFrame(true);
+            result.whileConnected();
+        }
     }
 }
