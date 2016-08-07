@@ -137,10 +137,15 @@ public class HorseRace {
     }
     
     public void displayHorseDone(String winner){
-        AppearWindow stateSlurps = new AppearWindow("HorseRace complete"); //rams opp straffeslurker her
+        AppearWindow stateSlurps = new AppearWindow("Winner: "+winner+"\nThe players guessing "+winner+" should choose a person to finish his/her drink."); //rams opp straffeslurker her
         stateSlurps.ShowFrame(true);
         stateSlurps.whileConnected();
-        
+    }
+    
+    public void displayStartWindow(){
+        AppearWindow stateSlurps = new AppearWindow("Welcome to the horserace.\nAll players guess a suit for the cards.\nThe player(s) choosing the winning suit hands out a bonskie to another person"); //rams opp straffeslurker her
+        stateSlurps.ShowFrame(true);
+        stateSlurps.whileConnected();
     }
     
     public void gg(){
@@ -374,7 +379,7 @@ public class HorseRace {
         sleepProgram(1);
         String winner ="";
         boolean isFinished = false;
-        
+        displayStartWindow();
         ArrayList<Integer> turnedCards = new ArrayList<Integer>();
         int highestReachedCard = 0;
         
