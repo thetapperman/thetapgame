@@ -52,6 +52,16 @@ public class Teleporter {
         this.f.setVisible(true);
     }
         
+        public void sleepProgram(int seconds){
+        int milliSeconds = seconds*1000;
+        
+        try {
+            Thread.sleep(milliSeconds);                 
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+    }    
+        
     public static void main(String[] arg0)throws IOException{
         Teleporter tp = new Teleporter();
     }
