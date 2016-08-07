@@ -28,7 +28,7 @@ public class Teleporter {
     private int newXCoord;
     private int newYCoord;
     
-    public Teleporter(){
+    public Teleporter(Player player, GameBoard gboard){
         Random rng = new Random();
         int isTeleporterBrokenRNG = rng.nextInt(10);
         
@@ -41,7 +41,7 @@ public class Teleporter {
         newXCoord = rng.nextInt(9) + 1;
         newYCoord = rng.nextInt(9) + 1;
         
-        startTeleporter();
+        startTeleporter(player.getName(), gBoard);
     }
     
         public void createBoard() {
@@ -62,23 +62,28 @@ public class Teleporter {
             Thread.currentThread().interrupt();
         }
     }    
-        
-    public static void main(String[] arg0)throws IOException{
-        Teleporter tp = new Teleporter();
-    }
     
-    public void startTeleporter(){
+        /*
+    public static void main(String[] arg0)throws IOException{
+        Player player = new Player("testRolf");
+        
+        Teleporter tp = new Teleporter(player);
+    }*/
+    
+    public void startTeleporter(String playerName, GameBoard gBoard){
         AppearWindow teleporter = new AppearWindow("Welcome to the teleporter!\n It can take you anywhere, but it is a bit rusty.");
         teleporter.ShowFrame(true);
         teleporter.whileConnected();
         
         if(!teleporterIsBroken){
+            Field toField = new Field(this.newXCoord, this.newYCoord, false, false, false, false);
+            gBoard.movePiece(playerName, toField);
             AppearWindow result = new AppearWindow("You are going to a new place! ");
             result.ShowFrame(true);
             result.whileConnected();
         } else {
             AppearWindow result = new AppearWindow("Oops!\n Looks like it exploded!\n Chug now.");
-             result.ShowFrame(true);
+            result.ShowFrame(true);
             result.whileConnected();
         }
     }
