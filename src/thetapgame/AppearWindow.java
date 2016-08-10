@@ -45,7 +45,6 @@ public class AppearWindow extends JPanel {
       
       g2.setFont(new Font("Serif", Font.PLAIN, 48));
       paintHorizontallyCenteredText(g2, "Task: ", 200, 75);
-      //paintHorizontallyCenteredText(g2, "and", 200, 125);
       g2.setFont(new Font("Serif", Font.PLAIN, 10));
       paintHorizontallyCenteredText(g2, this.text, 200, 175);
    }
@@ -82,9 +81,6 @@ public class AppearWindow extends JPanel {
                       BUTTON_SIZE_Y
                      );
         
-        //ActionEvent e = new ActionEvent();
-        
-        //btn.addActionListener(this.actionPerformed(e))
         btn.addActionListener(new ActionListener() { 
         
             public void actionPerformed(ActionEvent e) { 
@@ -105,7 +101,7 @@ public class AppearWindow extends JPanel {
         while (true){
             if(this.message==""){
                 try {
-                        Thread.sleep(1000);                 //1000 milliseconds is one second.
+                        Thread.sleep(1000);                
                     } catch(InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }

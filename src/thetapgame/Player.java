@@ -30,7 +30,7 @@ public class Player {
         //this.facialsLastWeek = facialsLastWeek;
         //this.tinderMatchNumber = tinderMatchNumber;
         //this.bonusPoints = 0;
-        this.activeField = new Field(0,0, false,false,false,false);
+        this.activeField = new Field(0,0, false,false,"");
         //this.tappedPing = tappedPing;
     }
     

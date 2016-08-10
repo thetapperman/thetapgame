@@ -12,39 +12,35 @@ package thetapgame;
 public class Field {
     private int xValue;
     private int yValue;
+    
     private boolean hasTask;
     private boolean hasLadder;
+    
     private String moveDir;
-    private boolean hasBus;
-    private boolean hasRoulette;
+    private String tapChallenge;
    
-    public Field(int xValue,int yValue, boolean hasTask,boolean hasLadder,boolean hasBus,boolean hasRoulette){
+    public Field(int xValue,int yValue, boolean hasTask,boolean hasLadder, String tapChallenge){
         this.xValue = xValue;
         this.yValue = yValue;
+        
         this.hasTask = hasTask;
         this.hasLadder = hasLadder;
-        this.hasBus = hasBus;
+        
+        this.tapChallenge = tapChallenge;
         this.moveDir = "";
     }
     
-    public void setHasRoulette(boolean hasRoulette){
-        this.hasRoulette = hasRoulette;
+    public void setTapChallenge(String tapChallenge){
+        this.tapChallenge = tapChallenge;
     }
     
-    public boolean getHasRoulette(){
-        return this.hasRoulette;
+    public String getTapChallenge(){
+        System.out.println("TapchallengeInFieldsClass: "+this.tapChallenge);
+        return this.tapChallenge;
     }
     
     public void setHasTask(boolean task){
         this.hasTask = task;
-    }
-    
-    public void setHasBus(boolean hasBus){
-        this.hasBus = hasBus;
-    }
-    
-    public boolean getHasBus(){
-        return this.hasBus;
     }
     
     public String getMoveDir(){
@@ -66,6 +62,7 @@ public class Field {
     public boolean getHasLadder(){
         return this.hasLadder;
     }
+    
     
     public int getXValue(){
         return this.xValue;

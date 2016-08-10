@@ -28,7 +28,7 @@ public class Brick {
         this.lbl = new JLabel(new ImageIcon(filename));
         this.filename = filename;
         this.belongsToPlayer = "";
-        this.onField = new Field(1,1,false,false,false,false);
+        this.onField = new Field(1,1,false,false,"");
         this.onField.setMoveDir("right");
         this.f = f;
         this.type = initType();
@@ -45,7 +45,6 @@ public class Brick {
         int height_board = 724;
         this.lbl.setBounds(x, y, width_board, height_board);
         this.f.add(this.lbl);
-        //this.lbl.setVisible(true);
     }
     
     public Field getOnField(){
