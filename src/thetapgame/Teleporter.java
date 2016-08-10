@@ -28,19 +28,24 @@ public class Teleporter {
     private int newXCoord;
     private int newYCoord;
     
-    public Teleporter(Player player, GameBoard gboard){
+    public Teleporter(Player player, GameBoard gBoard)throws IOException{
         Random rng = new Random();
         int isTeleporterBrokenRNG = rng.nextInt(10);
         
-        if(isTeleporterBrokenRNG < 2){
-            teleporterIsBroken = true;
+        this.teleporterBackground = "Images/Teleporter/teleporterBackground";
+        this.f = new JFrame();
+        this.img = new ImageIcon(ImageIO.read(new File(this.teleporterBackground)));
+        
+        if(isTeleporterBrokenRNG < 3){
+            this.teleporterIsBroken = true;
         } else {
-            teleporterIsBroken = false;
+            this.teleporterIsBroken = false;
         }
         
-        newXCoord = rng.nextInt(9) + 1;
-        newYCoord = rng.nextInt(9) + 1;
+        this.newXCoord = rng.nextInt(9) + 1;
+        this.newYCoord = rng.nextInt(9) + 1;
         
+        createBoard();
         startTeleporter(player.getName(), gBoard);
     }
     
@@ -70,6 +75,12 @@ public class Teleporter {
         Teleporter tp = new Teleporter(player);
     }*/
     
+    public void teleporterExploded(){
+        /*
+        Insert explosion image
+        */
+    }    
+        
     public void startTeleporter(String playerName, GameBoard gBoard){
         AppearWindow teleporter = new AppearWindow("Welcome to the teleporter!\n It can take you anywhere, but it is a bit rusty.");
         teleporter.ShowFrame(true);
