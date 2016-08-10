@@ -44,9 +44,7 @@ public class GameBoard {
         this.brickFileNames = new String[5];
         this.brickFileNames = new String[]{"brikke_ass.gif","brikke_blaa.gif","brikke_ol.gif","brikke_dildo.gif","brikke_kondom.gif"};
         this.bricks=initPieces();
-        //setPiecesStart();
     }
-    
     
     public void paintDice(int diceNum){
         ArrayList<Integer> co = new ArrayList<Integer>();
@@ -61,82 +59,45 @@ public class GameBoard {
         lbl.setVisible(true);
         this.f.repaint();
         
-        try {
-            Thread.sleep(2000);                 
-        } catch(InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
+        sleepProgram(2);
         
         lbl.setVisible(false);
         this.f.repaint();
     }
     
-    public void paintRoulettes(HashMap<Field, String> RouletteMap){
-        String RouletteFilename = "dood.gif";
-        ArrayList<Field> fieldRoulettes = new ArrayList<Field>();
+    public void paintTapChallengeLogosOnGameBoard(HashMap<Field, String> tapChallenges){
+        String busFile = "bus.gif";
+        String wheelFile = "wheel_logo.gif";
+        String rouletteFile = "dood.gif";
+        String horseFile = "horse_logo.gif";
+        String starFile = "star_challenge.gif";
         
-        for (Map.Entry<Field, String> taskIterator : RouletteMap.entrySet()) {
-            fieldRoulettes.add(taskIterator.getKey());
-        }
-        
-        for(int i=0;i<fieldRoulettes.size();i++){
-         
-            //System.out.println("sizern ooorn: "+fieldsWithChallenges.size());
-                    
+        for (Map.Entry<Field, String> taskIterator : tapChallenges.entrySet()) {
             ArrayList<Integer> coordinateToLookUp = new ArrayList<Integer>();
-            coordinateToLookUp.add(fieldRoulettes.get(i).getXValue());
-            coordinateToLookUp.add(fieldRoulettes.get(i).getYValue());
-            JLabel lbl = new JLabel(new ImageIcon(RouletteFilename));
-            lbl.setBounds(this.coordinateHashMap.get(coordinateToLookUp).get(0), this.coordinateHashMap.get(coordinateToLookUp).get(1), this.img.getIconWidth(), this.img.getIconHeight());
-            this.f.add(lbl);
-            //lbl.setVisible(true);
-            //this.f.repaint();
-        }
-    }
-    
-    public void paintBuses(HashMap<Field, String> busMap){
-        String busFilename = "bus.gif";
-        ArrayList<Field> fieldBuses = new ArrayList<Field>();
-        
-        for (Map.Entry<Field, String> taskIterator : busMap.entrySet()) {
-            fieldBuses.add(taskIterator.getKey());
-        }
-        
-        for(int i=0;i<fieldBuses.size();i++){
-         
-            //System.out.println("sizern ooorn: "+fieldsWithChallenges.size());
-                    
-            ArrayList<Integer> coordinateToLookUp = new ArrayList<Integer>();
-            coordinateToLookUp.add(fieldBuses.get(i).getXValue());
-            coordinateToLookUp.add(fieldBuses.get(i).getYValue());
-            JLabel lbl = new JLabel(new ImageIcon(busFilename));
-            lbl.setBounds(this.coordinateHashMap.get(coordinateToLookUp).get(0)-20, this.coordinateHashMap.get(coordinateToLookUp).get(1)-20, this.img.getIconWidth(), this.img.getIconHeight());
-            this.f.add(lbl);
-            //lbl.setVisible(true);
-            //this.f.repaint();
-        }
-    }
-    
-    public void paintChallenges(HashMap<Field, String> challengeMap){
-        ArrayList<Field> fieldsWithChallenges = new ArrayList<Field>();
-        String starMark = "star_challenge.gif";
-        
-        
-        for (Map.Entry<Field, String> taskIterator : challengeMap.entrySet()) {
-            fieldsWithChallenges.add(taskIterator.getKey());
-        }
-        
-        for(int i=0;i<fieldsWithChallenges.size();i++){
-         
-            System.out.println("sizern ooorn: "+fieldsWithChallenges.size());
-                    
-            ArrayList<Integer> coordinateToLookUp = new ArrayList<Integer>();
-            coordinateToLookUp.add(fieldsWithChallenges.get(i).getXValue());
-            coordinateToLookUp.add(fieldsWithChallenges.get(i).getYValue());
-            JLabel lbl = new JLabel(new ImageIcon(starMark));
-            lbl.setBounds(this.coordinateHashMap.get(coordinateToLookUp).get(0)-20, this.coordinateHashMap.get(coordinateToLookUp).get(1)-20, this.img.getIconWidth(), this.img.getIconHeight());
-            this.f.add(lbl);
+            coordinateToLookUp.add(taskIterator.getKey().getXValue());
+            coordinateToLookUp.add(taskIterator.getKey().getYValue());
             
+            if(taskIterator.getValue().equals("bus")){
+                JLabel lbl = new JLabel(new ImageIcon(busFile));
+                lbl.setBounds(this.coordinateHashMap.get(coordinateToLookUp).get(0)-20, this.coordinateHashMap.get(coordinateToLookUp).get(1)-20, this.img.getIconWidth(), this.img.getIconHeight());
+                this.f.add(lbl);
+            }else if(taskIterator.getValue().equals("wheel")){
+                JLabel lbl = new JLabel(new ImageIcon(wheelFile));
+                lbl.setBounds(this.coordinateHashMap.get(coordinateToLookUp).get(0), this.coordinateHashMap.get(coordinateToLookUp).get(1), this.img.getIconWidth(), this.img.getIconHeight());
+                this.f.add(lbl);
+            }else if(taskIterator.getValue().equals("horse")){
+                JLabel lbl = new JLabel(new ImageIcon(horseFile));
+                lbl.setBounds(this.coordinateHashMap.get(coordinateToLookUp).get(0), this.coordinateHashMap.get(coordinateToLookUp).get(1), this.img.getIconWidth(), this.img.getIconHeight());
+                this.f.add(lbl);
+            }else if(taskIterator.getValue().equals("roulette")){
+                JLabel lbl = new JLabel(new ImageIcon(rouletteFile));
+                lbl.setBounds(this.coordinateHashMap.get(coordinateToLookUp).get(0), this.coordinateHashMap.get(coordinateToLookUp).get(1), this.img.getIconWidth(), this.img.getIconHeight());
+                this.f.add(lbl);
+            }else if(taskIterator.getValue().equals("text")){
+                JLabel lbl = new JLabel(new ImageIcon(starFile));
+                lbl.setBounds(this.coordinateHashMap.get(coordinateToLookUp).get(0)-20, this.coordinateHashMap.get(coordinateToLookUp).get(1)-20, this.img.getIconWidth(), this.img.getIconHeight());
+                this.f.add(lbl);
+            }
         }
     }
     
@@ -191,7 +152,7 @@ public class GameBoard {
     
     public void movePiece(String player,Field toField){
         
-        Field playersField = new Field(0,0,false,false,false,false);
+        Field playersField = new Field(0,0,false,false,"");
         JLabel l = new JLabel();
         int brickNr =  -1;
         
@@ -200,28 +161,16 @@ public class GameBoard {
                 l = this.bricks.get(i).getBrick();
                 playersField = this.bricks.get(i).getOnField();
                 brickNr = i;
-                //System.out.println("players onField: ");
-                //playersField.printField();
             }
         }
         
         if(toField.getYValue()==playersField.getYValue()){
-            //System.out.println("Y value is the same. Ready to move");
-            //System.out.println("____________________________________________");
-            //System.out.println("Before move: ");
-            //this.bricks.get(brickNr).getOnField().printField();
-            //System.out.println("");
             moveSameRow(playersField,brickNr,toField,l);
             this.bricks.get(brickNr).setOnField(toField);
             
             //UPDATE MOVEDIR
             this.bricks.get(brickNr).getOnField().setMoveDir(getUpdateMoveDir(toField));
-            //System.out.println("____________________________________________");
-            //System.out.println("After move: ");
-            //this.bricks.get(brickNr).getOnField().printField();
-            //System.out.println("");
         }else{
-            //System.out.println("Y value is NOT the same. Ready to move");
             moveNotSameRow(playersField,brickNr,toField,l);
             this.bricks.get(brickNr).setOnField(toField);
             
@@ -254,17 +203,12 @@ public class GameBoard {
                     onField.add(fromField.getXValue()+i);
                     onField.add(fromField.getYValue());
                     l.setBounds(this.coordinateHashMap.get(onField).get(0), this.coordinateHashMap.get(onField).get(1),this.img.getIconWidth(), this.img.getIconHeight());
-                    //System.out.println("loop number: "+i);
                     this.f.add(l);
                     l.setVisible(true);
                     this.f.repaint();
                     
                     //sleep for å kunne se at brikken flytter seg.
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+                    sleepProgram(1);
                     
                     //for at ikke brikken skal bli usynlig til slutt.
                     if(i!=numFieldsToMove){
@@ -285,11 +229,7 @@ public class GameBoard {
                     this.f.repaint();
                     
                     //sleep for å kunne se at brikken flytter seg.
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+                    sleepProgram(1);
                     
                     //for at ikke brikken skal bli usynlig til slutt.
                     if(j!=numFieldsToMove){
@@ -318,6 +258,14 @@ public class GameBoard {
         return numFieldsToMove;
     }
     
+    public void sleepProgram(int seconds){
+        try {
+            Thread.sleep(seconds*1000);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
     public void moveNotSameRow(Field fromField,int brickNr, Field toField,JLabel l){
         int numFieldsToMove = calculateNumFieldsToMove(fromField,toField);
         int moveFieldsSameRow = 9-fromField.getXValue();
@@ -338,11 +286,7 @@ public class GameBoard {
                 this.f.repaint();
                     
                     //sleep for å kunne se at brikken flytter seg.
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+                    sleepProgram(1);
                     
                     //for at ikke brikken skal bli usynlig til slutt.
                     if(i!=moveFieldsSameRow){
@@ -363,11 +307,7 @@ public class GameBoard {
                 this.f.repaint();
                     
                     //sleep for å kunne se at brikken flytter seg.
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+                    sleepProgram(1);
                     
                     //for at ikke brikken skal bli usynlig til slutt.
                     if(v!=moveFieldsNextRow){
@@ -394,11 +334,7 @@ public class GameBoard {
                 this.f.repaint();
                     
                     //sleep for å kunne se at brikken flytter seg.
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+                    sleepProgram(1);
                     
                     //for at ikke brikken skal bli usynlig til slutt.
                     if(i!=moveFieldsSameRow){
@@ -419,11 +355,7 @@ public class GameBoard {
                 this.f.repaint();
                     
                     //sleep for å kunne se at brikken flytter seg.
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+                    sleepProgram(1);
                     
                     //for at ikke brikken skal bli usynlig til slutt.
                     if(v!=moveFieldsNextRow){
@@ -450,9 +382,6 @@ public class GameBoard {
         int numLeftAfterGoal = Math.abs(dice - numToGoal);
         
         
-        System.out.println("Diff to goal: "+numToGoal);
-        System.out.println("Diff after goal: "+numLeftAfterGoal);
-        
         for(int i = 1;i<numToGoal+1;i++){
                     
                 ArrayList<Integer> onField = new ArrayList<Integer>();
@@ -466,11 +395,7 @@ public class GameBoard {
                 this.f.repaint();
                     
                     //sleep for å kunne se at brikken flytter seg.
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+                    sleepProgram(1);
                     
                     //for at ikke brikken skal bli usynlig til slutt.
                     if(i!=numToGoal){
@@ -483,23 +408,17 @@ public class GameBoard {
                     
                 ArrayList<Integer> onField = new ArrayList<Integer>();
                 
-                //HER ER FEILEN
                 onField.add(9-i);
                 
                 onField.add(fromField.getYValue());
                 
                 l.setBounds(this.coordinateHashMap.get(onField).get(0), this.coordinateHashMap.get(onField).get(1),this.img.getIconWidth(), this.img.getIconHeight());
-                //System.out.println("loop number: "+i);
                 this.f.add(l);
                 l.setVisible(true);
                 this.f.repaint();
                     
                     //sleep for å kunne se at brikken flytter seg.
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
+                    sleepProgram(1);
                     
                     //for at ikke brikken skal bli usynlig til slutt.
                     if(i!=numLeftAfterGoal){
@@ -550,87 +469,22 @@ public class GameBoard {
                 brickNr = i;
             }
         }
-        /*
-        System.out.println("______________________________________________");
-        System.out.println("____________________EXCEPTION__________________________");
-        System.out.println("Brick nr: "+brickNr);
-        System.out.println("Player to hit Ladder: "+player);
-        System.out.println("ToField: ");
-        toField.printField();
-        System.out.println("______________________________________________");
-        System.out.println("______________________________________________");*/
         ArrayList<Integer> to = new ArrayList<Integer>();
         to.add(toField.getXValue());
         to.add(toField.getYValue());
         l.setBounds(this.coordinateHashMap.get(to).get(0), this.coordinateHashMap.get(to).get(1),this.img.getIconWidth(), this.img.getIconHeight());
-                //System.out.println("loop number: "+v);
         this.f.add(l);
         l.setVisible(true);
         this.f.repaint();
         
         this.bricks.get(brickNr).setOnField(toField);
             
-            //UPDATE MOVEDIR
         this.bricks.get(brickNr).getOnField().setMoveDir(getUpdateMoveDir(toField));
         
         
     }
     
-    public void printBricks(){
-        for(int brickNr = 0;brickNr<this.bricks.size();brickNr++){
-            System.out.println("");
-            this.bricks.get(brickNr).printBrick();
-            System.out.println("");
-        }
-    }
-    
-    public void printHashMapCoordinates(){
-        HashMap <ArrayList<Integer>, ArrayList<Integer>> k = this.coordinateHashMap;
-        for(int y = 1;y<10;y++){
-            for(int i = 1;i<10;i++){
-                ArrayList<Integer> pr = new ArrayList<Integer>();
-                pr.add(y);
-                pr.add(i);
-                System.out.println("x-Corrdinate: "+i);
-                System.out.println("y-Corrdinate: "+y);
-                System.out.println("x: "+k.get(pr).get(0));
-                System.out.println("y: "+k.get(pr).get(1));
-                System.out.println("");
-            }
-        }
-    }
-    
     public HashMap <ArrayList<Integer>, ArrayList<Integer>> getHashMap(){
         return this.coordinateHashMap;
     }
-    /*
-    public static void main(String[] args) throws IOException {
-        ArrayList<String> players = new ArrayList<String>();
-        players.add("espen");
-        players.add("torkel");
-        players.add("helvik");
-        
-        GameBoard g = new GameBoard(players.size(),players);
-        g.CreateBoard();
-        g.setPiecesStart();
-        
-        //ArrayList<Integer> p= new ArrayList<Integer>();
-        //p.add(9);
-        //p.add(7);
-        //System.out.println(": "+g.coordinateHashMap.get(p));
-        //g.setPieceOnField(p, "torkel");
-        
-        g.movePiece("torkel",new Field(7,1,false,false));
-        g.movePiece("torkel",new Field(8,2,false,false));
-        g.movePiece("torkel",new Field(3,2,false,false));
-        //g.movePiece("espen",new Field(6,2,false,false));
-        //g.movePiece("helvik",new Field(9,2,false,false));
-        g.movePiece("torkel",new Field(4,3,false,false));
-        g.movePiece("torkel",new Field(9,4,false,false));
-        g.movePiece("torkel",new Field(1,4,false,false));
-        g.movePiece("torkel",new Field(6,5,false,false));
-        g.movePiece("torkel",new Field(8,6,false,false));
-        //g.movePiece("espen",new Field(4,1,false,false));
-        //g.movePiece("helvik",new Field(6,1,false,false));
-    }*/
 }
