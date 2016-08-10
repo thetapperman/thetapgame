@@ -31,6 +31,7 @@ public class Limitations {
          challenges.put("horse",10);
          challenges.put("roulette",10);
          challenges.put("wheel",15);
+         challenges.put("teleport",5);
          
          
          return challenges;
@@ -48,6 +49,8 @@ public class Limitations {
         }else if(challenge.equals("text")){
             TextChallengeDatabase db = new TextChallengeDatabase();
             showDialog(db.getRandChallenge());
+        }else if(challenge.equals("teleport")){
+            Teleporter t = new Teleporter();
         }else if(challenge.equals("")){
             System.out.println("not challenge here");
         }

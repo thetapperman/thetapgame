@@ -376,7 +376,7 @@ public class Board {
                     newField = calculateGoal(dice.getValue(), this.players.get(player).getActiveField());
                     this.players.get(player).setActiveField(newField);
                     this.g.moveGoal(playersOldFieldBeforeGoal,this.players.get(player).getName(),newField,this.dice.getValue());
-                    
+                    handleAllTypesOfChallenges(searchForFieldChallengeInGameBoard(this.players.get(player).getActiveField()));
                     if(isWinner(this.players.get(player))==true){
                         isWinner = true;
                         this.players.get(player).getActiveField().printField();

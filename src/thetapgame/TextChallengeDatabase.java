@@ -34,7 +34,6 @@ public class TextChallengeDatabase {
         "Personen med minst matches på Tinder: Drikk 4 slurker. Den med flest matches: Gi bort 4 slurker. De i forhold er fritatt.",
         "Alle som IKKE har tappet svenskt må drikke 2 slurker.",
         "OPPKJØRING. Den med færrest alkoholenheter innabords må CHUGGE. Vil vedkommende få lappen? ->Ta å kjør deg opp.",
-        "GENTLEMAN BONUS deles ut til personene som har tappet innen en uke. Denne bonusen innebærer at personene som fikk den når som helst kan kalle inn til årsmøtet. Dersom personen kaller inn til årsmøte må de personene som ikke har tappet innen en uke fjerne seg fra rommet i 10 sekunder. Deltakerne i årsmøtet skal så bli enige om personen som må ta 10 slurker. Dersom de ikke kommer til enighet, er det opp til personsn som ble tildelt gentleman-bonusen å avgjøre. ",
         "De som aldri har hustlet i utlandet: 10 pushups.",
         "5 slurker til personen med MINST erfaring på sjekkern. Dette skal fellesskapet bli enige om. ",
         "RUTINEKONTROLL. Når tappet du sist? Dersom du tappet for mindre enn et døgn siden slipper du bot. Et forelegg på 5 slurker vil bli tildelt dersom vedkommende ikke har tappet det siste døgnet.",
@@ -92,6 +91,7 @@ public class TextChallengeDatabase {
             if(!(this.textChallenges.get(this.textDatabase[returnRandNum()]))){
                 this.textChallenges.put(this.textDatabase[returnRandNum()],true);
                 isFinished = true;
+                joke = this.textDatabase[returnRandNum()];
             }
         }
         

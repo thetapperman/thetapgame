@@ -27,12 +27,14 @@ public class Teleporter {
     private JFrame f;
     private int newXCoord;
     private int newYCoord;
+    private JLabel explosion;
+    private GameBoard gb;
     
     public Teleporter(Player player, GameBoard gBoard)throws IOException{
         Random rng = new Random();
         int isTeleporterBrokenRNG = rng.nextInt(10);
         
-        this.teleporterBackground = "Images/Teleporter/teleporterBackground";
+        this.teleporterBackground = "Images/Teleporter/teleporterBackground.jpg";
         this.f = new JFrame();
         this.img = new ImageIcon(ImageIO.read(new File(this.teleporterBackground)));
         
@@ -44,9 +46,14 @@ public class Teleporter {
         
         this.newXCoord = rng.nextInt(9) + 1;
         this.newYCoord = rng.nextInt(9) + 1;
-        
+        this.gb = gBoard;
         createBoard();
-        startTeleporter(player.getName(), gBoard);
+        this.explosion = getLabel();
+        startTeleporter(player.getName(), this.gb);
+    }
+    
+    public JLabel getLabel(){
+        
     }
     
         public void createBoard() {
@@ -80,22 +87,25 @@ public class Teleporter {
         Insert explosion image
         */
     }    
-        
+    
+    public void showDialog(String msg){
+        AppearWindow result = new AppearWindow(msg);
+        result.ShowFrame(true);
+        result.whileConnected();
+    }
+    
     public void startTeleporter(String playerName, GameBoard gBoard){
-        AppearWindow teleporter = new AppearWindow("Welcome to the teleporter!\n It can take you anywhere, but it is a bit rusty.");
-        teleporter.ShowFrame(true);
-        teleporter.whileConnected();
+        showDialog("Welcome to the teleporter!\n It can take you anywhere, but it is a bit rusty.");
+        
         
         if(!teleporterIsBroken){
-            Field toField = new Field(this.newXCoord, this.newYCoord, false, false, false, false);
+            Field toField = new Field(this.newXCoord, this.newYCoord, false, false,"");
             gBoard.movePiece(playerName, toField);
-            AppearWindow result = new AppearWindow("You are going to a new place! ");
-            result.ShowFrame(true);
-            result.whileConnected();
+            showDialog("You are going to a new place! ");
+            
         } else {
-            AppearWindow result = new AppearWindow("Oops!\n Looks like it exploded!\n Chug now.");
-            result.ShowFrame(true);
-            result.whileConnected();
+            showDialog("Oops!\n Looks like it exploded!\n Chug now.");
+            
         }
     }
 }
