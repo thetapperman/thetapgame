@@ -30,26 +30,33 @@ public class TextChallengeDatabase {
         
         String[] jokes = {
         "Tre slurker til den som ikke har tappet på over en mnd. ",
-        "Hvis det eksisterer en jomfru i salen: Venligst CHUG snarest.",
+        //"Hvis det eksisterer en jomfru i salen: Venligst CHUG snarest.",
+        "Gå bort til en person du ikke kjenner og si: Hei, 'næmmen så flott a gitt.' Forlat deretter personen uten å si noe mer..",    
         "Personen med minst matches på Tinder: Drikk 4 slurker. Den med flest matches: Gi bort 4 slurker. De i forhold er fritatt.",
-        "Alle som IKKE har tappet svenskt må drikke 2 slurker.",
-        "OPPKJØRING. Den med færrest alkoholenheter innabords må CHUGGE. Vil vedkommende få lappen? ->Ta å kjør deg opp.",
-        "De som aldri har hustlet i utlandet: 10 pushups.",
+        //"Alle som IKKE har tappet svenskt må drikke 2 slurker.",
+        "Løp du maraton idag? Hvis ikke, drikk 5 slurker",
+        "OPPKJØRING. Den med færrest alkoholenheter innabords må CHUGGE. Er du serr edru??? FOKUS.",
+        //"De som aldri har hustlet i utlandet: 10 pushups.",
+        "FOKUS!!!!! 10 SLURKER",
         "5 slurker til personen med MINST erfaring på sjekkern. Dette skal fellesskapet bli enige om. ",
-        "RUTINEKONTROLL. Når tappet du sist? Dersom du tappet for mindre enn et døgn siden slipper du bot. Et forelegg på 5 slurker vil bli tildelt dersom vedkommende ikke har tappet det siste døgnet.",
+        //"RUTINEKONTROLL. Når tappet du sist? Dersom du tappet for mindre enn et døgn siden slipper du bot. Et forelegg på 5 slurker vil bli tildelt dersom vedkommende ikke har tappet det siste døgnet.",
+        "RUTINEONTROLL! Pek på personen du mener er mest gentleman. Alle andre må chugge, inkludert deg selv.",
         "Drink 10 zips",
-        "RIM. Vedkommende som havnet på dette feltet starter. Retning: Med klokken. Rim på et ord som har med tapping å gjøre.",
+        "RIM. Vedkommende som havnet på dette feltet starter. Retning: Med klokken. Rim på et ord du velger selv.",
         "DU BLE TRUFFET AV ET CUMSHOT. Drikk 3 slurker.",
-        "INSPEKSJON. Har du tappet flere enn 10? Hvis ikke, drikk 5 slurker.",
+        //"INSPEKSJON. Har du tappet flere enn 10? Hvis ikke, drikk 5 slurker.",
+        "INSPEKSJON!!! Stemmer det at du er under 24? Vis leg og drikk 5 slurker om du er under 24.",
         "Personene som er i et forhold må drikke 3 slurker. De som har vært i et forhold i mer enn 2 år må drikke 5 slurker.",
-        "FOKUS! Du er nå nødt til å servere TIDENES sjekkereplikk til salen. Dersom salen mener den er for tam(at den ikke ville resultert i tappings), drikk 5 slurker.",
-        "FARTSKONTROLL. Du har tappet raskere enn tillatt hastighet. Drikk 4 slurker. ",
+        "FOKUS! Du er nå nødt til å servere TIDENES sjekkereplikk til salen. Dersom salen mener den er for tam må du drikke 5 slurker.",
+        "Gikk du BI? Dersom dette er tilfelle, fyll opp en koppog chug. Gjenta prosessen to ganger.",
         "BLAZERBONUS. Har du på deg blazer: Del ut 5 slurker. Mangler du derimot blazer: Drikk 5 slurker. Dersom du kompenserer nypussede sko: Del ut 3 slurker.",
-        "KRISEMØTE!!!! Det er blitt tappet for lite. Alle må drikke 3 slurker. ",
-        "Kategori! Retning: Med klokken. Si en kategori i forbindelse med tapping(f.eks kondom-brands). Neste person i rekken har så to sekunder på å nevne et ord tilsvarende kategorien. Failer denne personen må han drikke 5 slurker.",
-        "KNALLHARD doggy er observert på gutterommet. Del ut 5 slurker.",
+        "KRISEMØTE!!!! Det er blitt drukket for lite. Alle må drikke 3 slurker. ",
+        //"Kategori! Retning: Med klokken. Si en kategori i forbindelse med tapping(f.eks kondom-brands). Neste person i rekken har så to sekunder på å nevne et ord tilsvarende kategorien. Failer denne personen må han drikke 5 slurker.",
+        "Finn en kortstokk. Snu et kort. Er det høyere enn 9? Hvis ikke, drikke 5 slurker.",
+        //"KNALLHARD doggy er observert på gutterommet. Del ut 5 slurker.",
+        "Fortell en meningsløs vits. Dersom ingen i salen ler -> 3 slurker.",
         "Beertime for blondes. All players having blonde hair-> Drink 5 zips.",
-        "ALLAHU AKBAR!!!!! Players go around the table and name off as many gun brands as they can until one player repeats a brand or fails. that player needs to drink an amount of zips decided by Kraugerud. ",
+        "ALLAHU AKBAR!!!!! Players go around the table and name off as many gun brands as they can until one player repeats a brand or fails. That player needs to drink an amount of zips decided by Kraugerud. ",
         "Going clockwise each player names a Pokemon. The player which repeats or cannot think of any Pokemon has to finish his/her drink.",
         "If there is any player around the table named Vigdis, Børre, Raymond or Ruth: finish your drinks.",
         "Triana-crush!!!! If you would have had sex with Triana from Paradise hotel choose another player to finish his/her drink.",
@@ -81,7 +88,7 @@ public class TextChallengeDatabase {
     
     public int returnRandNum(){
         Random randomizer = new Random();
-        return randomizer.nextInt(this.textDatabase.length) + 1;
+        return randomizer.nextInt(this.textDatabase.length-1) + 1;
     }
     
     public String getRandChallenge(){

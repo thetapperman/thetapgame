@@ -28,10 +28,10 @@ public class Limitations {
          //ADD HER FOR Å LEGGE TIL NYE CHALLENGES
          challenges.put("text",20);
          challenges.put("bus",10);
-         challenges.put("horse",10);
+         challenges.put("horse",15);
          challenges.put("roulette",10);
          challenges.put("wheel",15);
-         challenges.put("teleport",5);
+         challenges.put("jokernord",10);
          
          
          return challenges;
@@ -48,18 +48,12 @@ public class Limitations {
             WheelOfFortune wheel = new WheelOfFortune();
         }else if(challenge.equals("text")){
             TextChallengeDatabase db = new TextChallengeDatabase();
-            showDialog(db.getRandChallenge());
-        }else if(challenge.equals("teleport")){
-            Teleporter t = new Teleporter();
+            Util.showDialog(db.getRandChallenge());
+        }else if(challenge.equals("jokernord")){
+            JokerNord jn = new JokerNord();
         }else if(challenge.equals("")){
             System.out.println("not challenge here");
         }
-    }
-    
-    public void showDialog(String msg){
-        AppearWindow maink = new AppearWindow(msg);
-        maink.ShowFrame(true);
-        maink.whileConnected();
     }
     
     public int getNumberOfTapChallengeTypes(){

@@ -37,7 +37,7 @@ public class HorseRace {
         shuffleDeck();
         this.aces = initAces();
         this.f = new JFrame();
-        this.img = new ImageIcon(ImageIO.read(new File("horse_background.jpg")));
+        this.img = new ImageIcon(ImageIO.read(new File("img/horse_background.jpg")));
         createBoard();
         this.labelHashingNormalBackCards = createLabelHashingNormalBack();
         this.labelHashingDrugBackCards = createLabelHashingDrugs();
@@ -62,7 +62,7 @@ public class HorseRace {
          String[] suits = {"spades", "hearts", "diamonds", "clubs"};
         
          for(int i = 0;i<suits.length;i++){
-             String imagePath = "Ah";
+             String imagePath = "img/Ah";
              imagePath+=suits[i];
              imagePath+=".gif";
              labelHashingAces.put(suits[i], paintRouteCards(imagePath,-100+i*100,360));
@@ -78,7 +78,7 @@ public class HorseRace {
         
         for(int i = 1;i<this.rows;i++){
             if(i% 2 == 0){
-                hash.put(i,paintRouteCards("backhcard.gif",-280,260-(i)*100));
+                hash.put(i,paintRouteCards("img/backhcard.gif",-280,260-(i)*100));
             }
         }
         return hash;
@@ -89,7 +89,7 @@ public class HorseRace {
         
         for(int i = 0;i<this.rows;i++){
             
-            hash.put(i+1,paintRouteCards("backhcard.gif",-200,260-i*100));
+            hash.put(i+1,paintRouteCards("img/backhcard.gif",-200,260-i*100));
         }
         
         
@@ -121,31 +121,13 @@ public class HorseRace {
     public void displayDrawnBackCard(Card card, int nr){
         setNormalBackCardInvisible(nr);
         
-        JLabel lbl = new JLabel(new ImageIcon(card.getRank()+"h"+card.getSuit()+".gif"));
-        
-        /*if(nr==1){//special case 
-            lbl.setBounds(-200, 260, this.img.getIconWidth(), this.img.getIconHeight());
-        }else{
-            lbl.setBounds(-200, 260-(nr-1)*100, this.img.getIconWidth(), this.img.getIconHeight());
-        }*/
+        JLabel lbl = new JLabel(new ImageIcon("img/"+card.getRank()+"h"+card.getSuit()+".gif"));
         
         lbl.setBounds(-200, 260-(nr-1)*100, this.img.getIconWidth(), this.img.getIconHeight());
         this.f.add(lbl);
         lbl.setVisible(true);
         this.f.repaint();
         sleepProgram(1);
-    }
-    
-    public void displayHorseDone(String winner){
-        AppearWindow stateSlurps = new AppearWindow("Winner: "+winner+"\nThe players guessing "+winner+" should choose a person to finish his/her drink."); //rams opp straffeslurker her
-        stateSlurps.ShowFrame(true);
-        stateSlurps.whileConnected();
-    }
-    
-    public void displayStartWindow(){
-        AppearWindow stateSlurps = new AppearWindow("Welcome to the horserace.\nAll players guess a suit for the cards.\nThe player(s) choosing the winning suit hands out a bonskie to another person"); //rams opp straffeslurker her
-        stateSlurps.ShowFrame(true);
-        stateSlurps.whileConnected();
     }
     
     public void gg(){
@@ -223,7 +205,7 @@ public class HorseRace {
             moveCardFromDeckTodrawnCards(rank,suit);
             
             if(flag){
-                String cardPath = card.getRank()+card.getSuit()+".jpg";
+                String cardPath = "img/"+card.getRank()+card.getSuit()+".jpg";
                 paintDrawCard(cardPath);
             }
             
@@ -364,7 +346,7 @@ public class HorseRace {
     }
     
     public void setVisibleDrugCard(int nr,Card drugCard){
-        String path=drugCard.getRank()+"h"+drugCard.getSuit()+".gif";
+        String path="img/"+drugCard.getRank()+"h"+drugCard.getSuit()+".gif";
         JLabel lbl = new JLabel(new ImageIcon(path));
         
         lbl.setBounds(-280, 260-(nr)*100, this.img.getIconWidth(), this.img.getIconHeight());
@@ -379,7 +361,7 @@ public class HorseRace {
         sleepProgram(1);
         String winner ="";
         boolean isFinished = false;
-        displayStartWindow();
+        Util.showDialog("Welcome to the horserace.\nAll players guess a suit for the cards.\nThe player(s) choosing the winning suit hands out a bonskie to another person");
         ArrayList<Integer> turnedCards = new ArrayList<Integer>();
         int highestReachedCard = 0;
         
@@ -444,7 +426,7 @@ public class HorseRace {
         }
         winner = suit;
         
-        displayHorseDone(winner);
+        Util.showDialog("Winner: "+winner+"\nThe players guessing "+winner+" should choose a person to finish his/her drink.");
         this.f.setVisible(false);
         
     }
