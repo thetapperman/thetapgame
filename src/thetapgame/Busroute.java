@@ -35,7 +35,7 @@ public class Busroute {
         this.labelHashing = new HashMap <Integer, JLabel>();
         this.cardDeck = initDeck();
         this.f = new JFrame();
-        this.img = new ImageIcon(ImageIO.read(new File("busroute_background.jpg")));
+        this.img = new ImageIcon(ImageIO.read(new File("img/busroute_background.jpg")));
         createBoard();
         paintRouteCards();
         shuffleDeck();
@@ -129,7 +129,7 @@ public class Busroute {
             //coordinateHashMap.put(i+1, co);
             coordinateHashing.put(i+1, co);
             
-            JLabel lbl = new JLabel(new ImageIcon(Integer.toString(i+1)+"_card.jpg"));
+            JLabel lbl = new JLabel(new ImageIcon("img/"+Integer.toString(i+1)+"_card.jpg"));
             this.labelHashing.put(i+1, lbl);
             lbl.setBounds(-370+i*constantOffsetX, 290, this.img.getIconWidth(), this.img.getIconHeight());
             
@@ -146,7 +146,7 @@ public class Busroute {
             //coordinateHashMap.put(i+6, co);
             coordinateHashing.put(i+6, co);
             
-            JLabel lbl = new JLabel(new ImageIcon(Integer.toString(i+6)+"_card.jpg"));
+            JLabel lbl = new JLabel(new ImageIcon("img/"+Integer.toString(i+6)+"_card.jpg"));
             lbl.setBounds(-370+constantOffsetX/2+i*constantOffsetX, 190, this.img.getIconWidth(), this.img.getIconHeight());
             this.labelHashing.put(i+6, lbl);
             this.f.add(lbl);
@@ -162,7 +162,7 @@ public class Busroute {
             //coordinateHashMap.put(i+10, co);
             coordinateHashing.put(i+10, co);
             
-            JLabel lbl = new JLabel(new ImageIcon(Integer.toString(i+10)+"_card.jpg"));
+            JLabel lbl = new JLabel(new ImageIcon("img/"+Integer.toString(i+10)+"_card.jpg"));
             lbl.setBounds(-370+(i+1)*constantOffsetX, 90, this.img.getIconWidth(), this.img.getIconHeight());
             this.labelHashing.put(i+10, lbl);
             
@@ -179,7 +179,7 @@ public class Busroute {
             //coordinateHashMap.put(i+13, co);
             coordinateHashing.put(i+13, co);
             
-            JLabel lbl = new JLabel(new ImageIcon(Integer.toString(i+13)+"_card.jpg"));
+            JLabel lbl = new JLabel(new ImageIcon("img/"+Integer.toString(i+13)+"_card.jpg"));
             lbl.setBounds(-370+(i+1)*constantOffsetX+constantOffsetX/2, -10, this.img.getIconWidth(), this.img.getIconHeight());
             this.labelHashing.put(i+13, lbl);
             this.f.add(lbl);
@@ -192,26 +192,12 @@ public class Busroute {
         co.add(-370+2*constantOffsetX);
         co.add(-110);
         coordinateHashing.put(15, co);
-        JLabel lbl = new JLabel(new ImageIcon("15_card.jpg"));
+        JLabel lbl = new JLabel(new ImageIcon("img/15_card.jpg"));
         lbl.setBounds(-370+constantOffsetX*2, -110, this.img.getIconWidth(), this.img.getIconHeight());
         this.labelHashing.put(15, lbl);
         this.f.add(lbl);
         lbl.setVisible(true);
         this.f.repaint();
-        
-       // this.labelHashing.get(4).setVisible(false);
-    }
-    
-    public void stateSlurps(int slurps){
-        AppearWindow stateSlurps = new AppearWindow("Drink "+ Integer.toString(slurps) +" zips");
-        stateSlurps.ShowFrame(true);
-        stateSlurps.whileConnected();
-    }
-    
-    public void displayBusrouteDone(){
-        AppearWindow stateSlurps = new AppearWindow("BUSROUTE COMPLETED. WELL DONE");
-        stateSlurps.ShowFrame(true);
-        stateSlurps.whileConnected();
         
     }
     
@@ -254,12 +240,12 @@ public class Busroute {
             
             this.labelHashing.get(cardNumber).setVisible(false);
             Card c = getRandomCardIMG();
-            String cardIMG = c.getRank()+c.getSuit()+".jpg";
+            String cardIMG = "img/"+c.getRank()+c.getSuit()+".jpg";
             showDrawnCard(cardIMG);
             
             
             if(hasToDrink(c)){
-                stateSlurps(rowCounter);
+                Util.showDialog("Drink "+ Integer.toString(rowCounter) +" zips");
                 
                 for(int i = 1;i<this.labelHashing.size()+1;i++){
                     this.labelHashing.get(i).setVisible(true);
@@ -273,7 +259,7 @@ public class Busroute {
             
             if(rowCounter==6){
                 finished = true;
-                displayBusrouteDone();
+                Util.showDialog("BUSROUTE COMPLETED. WELL DONE");
                 this.f.setVisible(false);
             }
             

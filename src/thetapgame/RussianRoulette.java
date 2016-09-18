@@ -29,7 +29,7 @@ public class RussianRoulette {
     public RussianRoulette() throws IOException{
         Random randomizer = new Random();
         this.dangerousNumber = randomizer.nextInt(5) + 1;
-        this.gunBackGround = "gun_.jpg";
+        this.gunBackGround = "img/gun_.jpg";
         this.f = new JFrame();
         this.img = new ImageIcon(ImageIO.read(new File(this.gunBackGround)));
         createBoard();
@@ -64,7 +64,7 @@ public class RussianRoulette {
     
     public void drawCounter(){
         for(int i = 3;i>0;i--){
-            JLabel lbl = new JLabel(new ImageIcon(Integer.toString(i)+"_count.gif"));
+            JLabel lbl = new JLabel(new ImageIcon("img/"+Integer.toString(i)+"_count.gif"));
             lbl.setBounds(100, 100, this.img.getIconWidth(), this.img.getIconHeight());
             this.f.add(lbl);
             lbl.setVisible(true);
@@ -76,7 +76,7 @@ public class RussianRoulette {
     }
     
     public void drawBullet(){
-        JLabel lbl = new JLabel(new ImageIcon("bulletGif.gif"));
+        JLabel lbl = new JLabel(new ImageIcon("img/bulletGif.gif"));
         lbl.setBounds(185, -52, this.img.getIconWidth(), this.img.getIconHeight());
         this.f.add(lbl);
         lbl.setVisible(true);
@@ -84,23 +84,15 @@ public class RussianRoulette {
     }
     
     public void drawFlag(){
-        JLabel lbl = new JLabel(new ImageIcon("flagGif.gif"));
+        JLabel lbl = new JLabel(new ImageIcon("img/flagGif.gif"));
         lbl.setBounds(178, -5, this.img.getIconWidth(), this.img.getIconHeight());
         this.f.add(lbl);
         lbl.setVisible(true);
         this.f.repaint();
     }
     
-    public void showDialog(String text){
-        AppearWindow roulette = new AppearWindow(text);
-        roulette.ShowFrame(true);
-        roulette.whileConnected();
-    }
-    
     public void startRoulette(){
-        AppearWindow roulette = new AppearWindow("Welcome to russian roulette\nThe gun has a capacity of 5 rounds\nChoose a number between 1 and 5\n There is one bullet inside.\nIf you choose the wrong one, finish your drink. ");
-        roulette.ShowFrame(true);
-        roulette.whileConnected();
+        Util.showDialog("Welcome to russian roulette\nThe gun has a capacity of 5 rounds\nChoose a number between 1 and 5\n There is one bullet inside.\nIf you choose the wrong one, finish your drink. ");
         
         RussianRouletteControl control = new RussianRouletteControl(this.dangerousNumber);
         control.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,13 +105,13 @@ public class RussianRoulette {
         
             drawBullet();
             sleepProgram(2);
-            showDialog("YOU GOT SHOT----> CHUG!!!");
+            Util.showDialog("YOU GOT SHOT----> CHUG!!!");
             
         }else{
             
             drawFlag();
             sleepProgram(2);
-            showDialog("Lucky bastard. Game goes on.");
+            Util.showDialog("Lucky bastard. Game goes on.");
                     
         }
         

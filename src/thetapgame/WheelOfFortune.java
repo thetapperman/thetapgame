@@ -145,7 +145,7 @@ public class WheelOfFortune {
     }
     
     public void startWheelOfFortune() throws IOException{
-        showDialog("Welcome to wheel of fortune. \nStart when ready.");
+        Util.showDialog("Welcome to wheel of fortune. \nStart when ready.");
         createBoard();
         Random randomizer = new Random();
         int spinSecs = randomizer.nextInt(20) + 3;
@@ -169,10 +169,9 @@ public class WheelOfFortune {
         sleepProgram(2);
         
         String challenge = this.challenges.get(spinCounter);
-        showDialog(challenge);
+        Util.showDialog(challenge);
         sleepProgram(1);
         this.f.setVisible(false);
-        
         
         if(challenge.contains("busride")){
             Busroute route = new Busroute();
@@ -196,14 +195,8 @@ public class WheelOfFortune {
             this.f.repaint();
             sleepProgram(2);
             this.f.setVisible(false);
-            showDialog(Integer.toString(diceNr)+" zips!!!!!!");
+            Util.showDialog(Integer.toString(diceNr)+" zips!!!!!!");
         }
-    }
-    
-    public void showDialog(String challenge){
-        AppearWindow stateSlurps = new AppearWindow(challenge);
-        stateSlurps.ShowFrame(true);
-        stateSlurps.whileConnected();
     }
     
     public void sleepProgram(double seconds){

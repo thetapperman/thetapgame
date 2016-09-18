@@ -39,10 +39,12 @@ public class GameBoard {
         initCoordinatesHashMap();
         this.players = players;
         this.playerNames = playerNames;
-        this.img = new ImageIcon(ImageIO.read(new File("ladder_tap.jpg")));
+        //this.img = new ImageIcon(ImageIO.read(new File("img/ladder_tap.jpg")));
+        this.img = new ImageIcon(ImageIO.read(new File("img/designed_drink_more.jpg")));
+        
         this.bricks = new ArrayList<Brick>();
         this.brickFileNames = new String[5];
-        this.brickFileNames = new String[]{"brikke_ass.gif","brikke_blaa.gif","brikke_ol.gif","brikke_dildo.gif","brikke_kondom.gif"};
+        this.brickFileNames = new String[]{"img/erdal_brick.gif","img/kraugerud_brick.gif","img/thon_brick.gif","img/helvik_brick.gif","img/brikke_kondom.gif"};
         this.bricks=initPieces();
     }
     
@@ -51,7 +53,7 @@ public class GameBoard {
         co.add(5);
         co.add(5);
         
-        String imagePath = Integer.toString(diceNum)+".jpg";
+        String imagePath = "img/"+Integer.toString(diceNum)+".jpg";
         JLabel lbl = new JLabel(new ImageIcon(imagePath));
         
         lbl.setBounds(this.coordinateHashMap.get(co).get(0)+540, this.coordinateHashMap.get(co).get(1)+30, this.img.getIconWidth(), this.img.getIconHeight());
@@ -66,11 +68,12 @@ public class GameBoard {
     }
     
     public void paintTapChallengeLogosOnGameBoard(HashMap<Field, String> tapChallenges){
-        String busFile = "bus.gif";
-        String wheelFile = "wheel_logo.gif";
-        String rouletteFile = "dood.gif";
-        String horseFile = "horse_logo.gif";
-        String starFile = "star_challenge.gif";
+        String busFile = "img/bus.gif";
+        String wheelFile = "img/wheel_logo.gif";
+        String rouletteFile = "img/dood.gif";
+        String horseFile = "img/horse_logo.gif";
+        String starFile = "img/star_challenge.gif";
+        String jokerFile = "img/jokernord/joker.gif";
         
         for (Map.Entry<Field, String> taskIterator : tapChallenges.entrySet()) {
             ArrayList<Integer> coordinateToLookUp = new ArrayList<Integer>();
@@ -96,6 +99,10 @@ public class GameBoard {
             }else if(taskIterator.getValue().equals("text")){
                 JLabel lbl = new JLabel(new ImageIcon(starFile));
                 lbl.setBounds(this.coordinateHashMap.get(coordinateToLookUp).get(0)-20, this.coordinateHashMap.get(coordinateToLookUp).get(1)-20, this.img.getIconWidth(), this.img.getIconHeight());
+                this.f.add(lbl);
+            }else if(taskIterator.getValue().equals("jokernord")){
+                JLabel lbl = new JLabel(new ImageIcon(jokerFile));
+                lbl.setBounds(this.coordinateHashMap.get(coordinateToLookUp).get(0), this.coordinateHashMap.get(coordinateToLookUp).get(1), this.img.getIconWidth(), this.img.getIconHeight());
                 this.f.add(lbl);
             }
         }
@@ -195,9 +202,7 @@ public class GameBoard {
         int numFieldsToMove = calculateNumFieldsToMove(fromField,toField);
         
         if(fromField.getYValue()==toField.getYValue()){
-            System.out.println("");
             if(fromField.getMoveDir().equals("right")){
-                //System.out.println("dir right");
                 for(int i = 1;i<numFieldsToMove+1;i++){
                     ArrayList<Integer> onField = new ArrayList<Integer>();
                     onField.add(fromField.getXValue()+i);
@@ -223,7 +228,7 @@ public class GameBoard {
                     onField.add(fromField.getXValue()-j);
                     onField.add(fromField.getYValue());
                     l.setBounds(this.coordinateHashMap.get(onField).get(0), this.coordinateHashMap.get(onField).get(1),this.img.getIconWidth(), this.img.getIconHeight());
-                    //System.out.println("loop number: "+j);
+                    
                     this.f.add(l);
                     l.setVisible(true);
                     this.f.repaint();
@@ -301,7 +306,7 @@ public class GameBoard {
                 onField_2.add(fromField.getYValue()+1);
                 
                 l.setBounds(this.coordinateHashMap.get(onField_2).get(0), this.coordinateHashMap.get(onField_2).get(1),this.img.getIconWidth(), this.img.getIconHeight());
-               // System.out.println("loop number: "+v);
+               
                 this.f.add(l);
                 l.setVisible(true);
                 this.f.repaint();
@@ -389,7 +394,6 @@ public class GameBoard {
                 onField.add(fromField.getYValue());
                 
                 l.setBounds(this.coordinateHashMap.get(onField).get(0), this.coordinateHashMap.get(onField).get(1),this.img.getIconWidth(), this.img.getIconHeight());
-                //System.out.println("loop number: "+i);
                 this.f.add(l);
                 l.setVisible(true);
                 this.f.repaint();

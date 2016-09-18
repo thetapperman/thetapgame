@@ -1,39 +1,34 @@
-<<<<<<< HEAD
-=======
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Card.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/PaintImage.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/GameBoard.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/PlayerRegistrationGUI.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Field.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapegame/src/thetapgame/WheelOfFortune.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/5.jpg</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/runner.gif</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/1_card.jpg</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Limitations.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Busroute.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/test/thetapgame/BoardIT.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/test/thetapgame/BusrouteIT.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/HorseControl.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/RussianRoulette.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/HorseRace.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Ladder.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/BusControl.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/SixtyMeter.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Brick.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Dice.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/TextChallengeDatabase.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/AppearWindow.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Player.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Ping.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Board.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/Task.java</file>
-				<file>file:/Users/larstoc/Documents/TheGreatGame/thetapgame/src/thetapgame/TheGreatGame.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/RussianRouletteControl.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Task.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Limitations.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Card.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/JokerNordControl.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Util.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Busroute.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Ladder.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Field.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Player.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/AppearWindow.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Brick.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/img/jokernord/jokernordmarker.gif</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Dice.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/PlayerRegistrationGUI.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/BusControl.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/TextChallengeDatabase.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/WheelOfFortune.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/JokerNord.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/GameBoard.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/TheTapGame.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/RussianRoulette.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/img/jokernord/joker.gif</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/HorseRace.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/Board.java</file>
+            <file>file:/Users/Kraugen/thetapgame/src/thetapgame/img/jokernord/4_num.gif</file>
         </group>
     </open-files>
 </project-private>
->>>>>>> bbc3c724207508195a5c45d47a402a6afd949aa8

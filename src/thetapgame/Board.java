@@ -341,15 +341,11 @@ public class Board {
         return null;
     }
     
-    public void showDialog(String msg){
-        AppearWindow maink = new AppearWindow(msg);
-        maink.ShowFrame(true);
-        maink.whileConnected();
-    }
+    
     
     public void handleAllTypesOfChallenges(String challenge) throws IOException{
         Limitations limits = new Limitations();
-        limits.mapChallengesToEvents(challenge);
+        limits.mapChallengesToEvents(challenge);//returns "normal","ladder" or "teleport"
     }
     
      public String searchForFieldChallengeInGameBoard(Field field){
@@ -376,11 +372,11 @@ public class Board {
                     newField = calculateGoal(dice.getValue(), this.players.get(player).getActiveField());
                     this.players.get(player).setActiveField(newField);
                     this.g.moveGoal(playersOldFieldBeforeGoal,this.players.get(player).getName(),newField,this.dice.getValue());
-                    handleAllTypesOfChallenges(searchForFieldChallengeInGameBoard(this.players.get(player).getActiveField()));
+                    
                     if(isWinner(this.players.get(player))==true){
                         isWinner = true;
                         this.players.get(player).getActiveField().printField();
-                        showDialog("DU HAR TAPPET DEG TIL TOPPS, "+this.players.get(player).getName()+". DEL UT EN BONSKIE TIL EN AV DE ANDRE.");
+                        Util.showDialog("DU HAR TAPPET DEG TIL TOPPS, "+this.players.get(player).getName()+". DEL UT EN BONSKIE TIL EN AV DE ANDRE.");
                         break;
                     }
                 }else{
@@ -401,7 +397,6 @@ public class Board {
                         Field playersOldFieldBeforeGoal = this.players.get(player).getActiveField();
                         newField = calculateGoal(dice.getValue(), this.players.get(player).getActiveField());
                         this.players.get(player).setActiveField(newField);
-                        System.out.println(this.players.get(player).getName());
                         this.players.get(player).getActiveField().printField();
                         this.g.moveGoal(playersOldFieldBeforeGoal,this.players.get(player).getName(),newField,this.dice.getValue());
                         handleAllTypesOfChallenges(searchForFieldChallengeInGameBoard(this.players.get(player).getActiveField()));
@@ -409,9 +404,8 @@ public class Board {
                         if(isWinner(this.players.get(player))==true){
                             handleAllTypesOfChallenges(searchForFieldChallengeInGameBoard(this.players.get(player).getActiveField()));
                             isWinner = true;
-                            System.out.println(this.players.get(player).getName());
                             this.players.get(player).getActiveField().printField();
-                            showDialog("DU HAR TAPPET DEG TIL TOPPS, "+this.players.get(player).getName()+". DEL UT EN BONSKIE TIL EN AV DE ANDRE.");
+                            Util.showDialog("DU HAR TAPPET DEG TIL TOPPS, "+this.players.get(player).getName()+". DEL UT EN BONSKIE TIL EN AV DE ANDRE.");
                             
                             break;
                         }
